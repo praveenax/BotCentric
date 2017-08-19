@@ -9,7 +9,7 @@ predictor = Predictor()
 @app.route("/")
 def hello():
     predictor.get_tasks()
-    return "Hello World!"
+    return "Tensor Engine Online"
 
 
 @app.route("/test")
