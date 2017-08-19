@@ -20,6 +20,10 @@ myApp.config(function ($routeProvider, $sceDelegateProvider) {
             templateUrl: 'html/detailview.html',
             controller: 'cntrl'
         })
+    .when('/home', {
+            templateUrl: 'html/detailview.html',
+            controller: 'cntrl'
+        })
         .when('/NewBot', {
             templateUrl: 'html/category.html',
             controller: 'cntrl'
@@ -31,9 +35,30 @@ myApp.controller('cntrl', function ($scope, $http, $interval, $timeout, $compile
     $scope.sidelane = 0;
     $scope.maplane = 12;
 
-    $scope.selected_driver = null;
+    // $scope.selected_driver = null;
     
     $scope.optionList  = ["Neural Net", "Spec2","Spec3"];
+$scope.results = "There is no bot created yet."
+$scope.displayBots = function(){
+    var ref = firebase.database().ref("botcentric-f8019").child('UserBots').child('Paddy').child('Bots');
+    var obj = $firebaseObject(ref);
+   
+    ref.off();
+    ref.on("value", function(snapshot){
+        //
+        console.log(snapshot.val());
+        
+        // To iterate the key/value pairs of the object, use angular.forEach()
+        snapshot.forEach(function(data) {
+             //console.log(data.val());          
+            data.forEach(function(child2){
+                //console.log(child2.val()); 
+            });
+         });
+        
+    });
+    return $scope.results;   
+}
 
     $scope.create =function () {
         
