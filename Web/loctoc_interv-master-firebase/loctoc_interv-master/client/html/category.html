@@ -1,0 +1,48 @@
+<div style="">
+    <div style="color: #848484;    font-size: 16px;margin-bottom: 14px;" class="col-md-12">
+        <div class="col-md-6">Lifestyle & Home</div>
+        <div class="col-md-6">
+            <div ng-hide="list_pane_2 == 8" class="col-md-6" style="text-align:center;">Old Rate</div>
+            <div ng-hide="list_pane_2 == 8" class="col-md-6" style="text-align:right;">GST</div>
+        </div>
+    </div>
+
+    
+    <div class="col-md-12 prod-row" ng-repeat="pd in tmp_data_arr" ng-click="onProductSelect(pd)" style="cursor:pointer;">
+       
+       <div class="col-md-12" ng-show="list_pane_2 == 8">
+            <button ng-click="onProductSelect(pd)" class="prod-button" style="    margin-right: 15px;">
+                <i class="fa fa-plus" aria-hidden="true"></i>
+            </button> 
+            <span style="font-size:18px;">
+                {{pd['product-label']}}
+            </span>
+        </div>
+        <div ng-hide="list_pane_2 == 8" class="col-md-6">
+            <button ng-click="onProductSelect(pd)" class="prod-button" style="    margin-right: 15px;">
+                <i class="fa fa-plus" aria-hidden="true"></i>
+            </button> 
+            <span style="font-size:18px;">
+                {{pd['product-label']}}
+            </span>
+        </div>
+        <div ng-hide="list_pane_2 == 8" class="col-md-6">
+            <div ng-hide="list_pane_2 == 8" class="col-md-6" style="text-align:center;"><span style="font-size:18px;">{{pd['old-rate']}}%</span></div>
+            <div ng-hide="list_pane_2 == 8"  class="col-md-6" style="text-align:right;">
+
+                <div class="col-md-2">
+                    <div ng-show="pd['diff'] > 0" class="prod-indicator" style="background: red;"></div>
+                    <div ng-show="pd['diff'] < 0" class="prod-indicator" style="background: #06de06;"></div>
+                    <div ng-show="pd['diff'] == 0" class="prod-indicator" style="background: black;"></div>
+                </div>
+
+                <div class="">
+                    <span style="font-size:18px;" class=" col-md-4">{{pd['gst-rate']}}%</span>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+</div>
