@@ -3,11 +3,23 @@
         <form>
                 <br>
                 <!--BOT ID:<input type="text" name="text"><br><br>-->
-                BOT Name:<input type="text" name="name" id = "botName"><br><br>
+                BOT Name:<input type="text" name="name" ng-model = "botName"><br><br>
                 BOT Model:<br>
+                
+                <select name="" id="" ng-model="botType">
+<!--
+                    <option value="Neural Net">Neural Net</option>
+                    <option value="Spec2">Spec2</option>
+                    <option value="Spec3">Spec3</option>
+-->
+                    <option ng-repeat="option in optionList" value="{{option}}">{{option}}</option>
+                </select>
+                
+<!--
                 <input type="radio" name="model" value="Neural Net">Neural Net<br>
                 <input type="radio" name="model" value="Spec2">Spec2<br>
                 <input type="radio" name="model" value="Spec3">Spec3<br><br>
+-->
                 <input type="submit" value="Create" ng-click = "create()">
                 <!--
                       <form class="navbar-form navbar-left">

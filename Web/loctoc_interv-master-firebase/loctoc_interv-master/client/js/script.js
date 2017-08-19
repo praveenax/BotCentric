@@ -32,14 +32,23 @@ myApp.controller('cntrl', function ($scope, $http, $interval, $timeout, $compile
     $scope.maplane = 12;
 
     $scope.selected_driver = null;
+    
+    $scope.optionList  = ["Neural Net", "Spec2","Spec3"];
 
     $scope.create =function () {
+        
         var ref = firebase.database().ref("botcentric-f8019").child('UserBots').child('Paddy').child('Bots').push();
+        
         var BotID = ref.key;
+        console.log(BotID);
         var request = $firebaseObject(ref);
-        request.BotName = $scope.botName;
-        request.Model = $scope.Model;
-        request.$save();
+        request.$loaded().then(function () {
+            request.BotName = $scope.botName;
+            request.BotType = $scope.botType;
+            var save = request.$save();
+            console.log(save);
+        });
+        
     }
     /*
         //var ref = firebase.database().ref("botcentric-f8019");
