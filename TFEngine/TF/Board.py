@@ -17,4 +17,5 @@ with open(output_filename, 'wb') as writer:
 
 
 
-tensorboard --logdir='log_dir'
+tensorboard --logdir='/tmp/tflearn_logs/'
+/tmp/tflearn_logs/

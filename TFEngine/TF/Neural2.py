@@ -37,7 +37,7 @@ for j in xrange(60000):
         print "ERROR:  " + str(np.mean(np.abs(l3_error)))
         
     l3_delta = l3_error * nonlin(l3,deriv=True)
-    
+
     l2_error = l3_delta.dot(syn2.T)
     
     l2_delta = l2_error * nonlin(l2,deriv=True)
@@ -53,7 +53,7 @@ for j in xrange(60000):
     syn0 += l0.T.dot(l1_delta)
     
 print "OUTPUT"
-#print l3
+print l3
 #print syn0
 #print syn1
 #print l2[0][0]
